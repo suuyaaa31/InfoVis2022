@@ -1,4 +1,4 @@
-labelx,y,width,height,color
+label,x,y,width,height,color
 "Label1",10,10,100,10,"Red"
 "Label2",10,40,50,10,"Black"
 "Label3",10,70,80,10,"Green"
