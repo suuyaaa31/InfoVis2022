@@ -18,6 +18,13 @@
             .attr("width", function(d){ return d.width; })
             .attr("height", function(d){ return d.height; })
             .style("fill", function(d){ return d.color; });
+
+            svg.append('text')
+            .attr('text-anchor', 'right')
+            .attr('fill', 'black')
+            .style('pointer-events', 'none')
+            .attr('font-size', function(d) { return '10px'; })
+            .text(function(d) { return d.label })
         };
     </script>
 </body>
