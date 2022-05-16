@@ -1,6 +1,6 @@
-d3.csv("https://suuyaaa31.github.io/InfoVis2022/W04/w04_task2.csv")
+d3.csv("https://suuyaaa31.github.io/InfoVis2022/W08/data1.csv")
     .then( data => {
-        data.forEach( d => { d.value = +d.width; });
+        data.forEach( d => { d.value = +d.value; });
 
         var config = {
             parent: '#drawing_region',
@@ -70,7 +70,7 @@ class BarChart {
             .attr('transform', `translate(${self.inner_width}), 0`)
             .call(self.yaxis);
 
-        self.axis_group = self.svg.append('g');
+        self.label_group = self.svg.append('g');
         self.title_group = self.svg.append('g');
         
     }
@@ -92,7 +92,7 @@ class BarChart {
             .atr("width", d=>self.xscale(d.value))
             .attr("height", self.yscale.bandwidth());
 
-        self.axis_group.append('text')
+        self.label_group.append('text')
             .attr('x', self.config.width / 2)
             .attr('y', self.config.margin.top + self.inner_height + self.config.margin.bottom / 2)
             .attr('font-size', '10pt')

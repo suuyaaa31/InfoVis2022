@@ -1,4 +1,4 @@
-d3.csv("https://teradataiki.github.io/InfoVis2022/W08/data2.csv")
+d3.csv("https://suuyaaa31.github.io/InfoVis2022/W08/data2.csv")
     .then( data => {
         data.forEach( d => { d.x = +d.x; d.y = +d.y; });
 
@@ -9,18 +9,18 @@ d3.csv("https://teradataiki.github.io/InfoVis2022/W08/data2.csv")
             margin: {top:30, right:30, bottom:50, left:30},
             xtics:10,
             yticks:10,
-            xlabel: 'xlabel',
-            title: 'title',
+            xlabel: 'X-Label',
+            title: 'Title',
         };
 
-        let linechart_plot = new LinechartPlot( config, data );
-        linechart_plot.update();
+        let line_chart = new Linechart( config, data );
+        line_chart.update();
     })
     .catch( error => {
         console.log( error );
     });
 
-class LinechartPlot {
+class Linechart {
 
     constructor( config, data ) {
         this.config = {
@@ -32,7 +32,7 @@ class LinechartPlot {
             yticks: config.yticks || 10,
             xlabel: config.xlabel || '',
             title: config.title || '',
-            r:config.r||5,
+            r:config.r || 1,
         };
         this.data = data;
         this.init();
@@ -77,14 +77,14 @@ class LinechartPlot {
             self.yaxis_group = self.chart.append('g')
                 .call(self.yaxis);
     
-            self.axis_group = self.svg.append('g')
-            self.title_group = self.svg.append('g')
+            self.label_group = self.svg.append('g');
+            self.title_group = self.svg.append('g');
 
 
             self.area = d3.area()
                 .x(d => self.xscale(d.x))
                 .y1(d => self.yscale(d.y))
-                .y0(d3.max(self.data, d => self.yscale(d.y))+20);
+                .y0(d3.max(self.data, d => self.yscale(d.y))+40);
     }
 
     update() {
@@ -108,6 +108,12 @@ class LinechartPlot {
             .attr('y', self.config.margin.top / 2)
             .attr('font-size', '10pt')
             .text(self.config.title);
+
+        self.label_group.append('text')
+            .attr('x', self.config.width / 2)
+            .attr('y', self.config.margin.top + self.inner_height + self.config.margin.bottom / 1.5)
+            .attr('font-size', '10pt')
+            .text(self.config.xlabel)
             
             
         self.chart.append('path')
