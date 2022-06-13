@@ -83,6 +83,8 @@ class ScatterPlot {
             self.xvalue = d => d.Beverage;
         }else if(Horizontalnum == 11){
             self.xvalue = d => d.Liquors;
+        }else if(Horizontalnum == 12){
+            self.xvalue = d => d.sum;
         }else{
             self.xvalue = d => d.Cereals;
         }
@@ -113,6 +115,8 @@ class ScatterPlot {
             self.yvalue = d => d.Beverage;
         }else if(Verticalnum == 11){
             self.yvalue = d => d.Liquors;
+        }else if(Verticalnum == 12){
+            self.yvalue = d => d.sum;
         }else{
         self.yvalue = d => d.Cereals;
         }

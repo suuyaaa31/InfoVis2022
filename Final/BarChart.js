@@ -83,6 +83,8 @@ class BarChart{
             self.bvalue = d => d.Beverage;
         }else if(num == 11){
             self.bvalue = d => d.Liquors;
+        }else if(num == 12){
+            self.bvalue = d => d.sum;
         }else{
             self.bvalue = d => d.Cereals;
         }

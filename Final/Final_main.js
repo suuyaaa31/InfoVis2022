@@ -1,4 +1,4 @@
-d3.csv("https://suuyaaa31.github.io/InfoVis2022/Final/SSDSE-C-2022_2.csv")
+d3.csv("https://suuyaaa31.github.io/InfoVis2022/Final/SSDSE-C-2022_4.csv")
     .then( data => {
         data.forEach( (d,i) => {
           d.Cereals =+ d.Cereals, 
@@ -12,6 +12,7 @@ d3.csv("https://suuyaaa31.github.io/InfoVis2022/Final/SSDSE-C-2022_2.csv")
           d.Cooked =+ d.Cooked,
           d.Beverage =+ d.Beverage,
           d.Liquors =+ d.Liquors,
+          d.sum =+ d.sum,
           d.index = i;  });
 
         const barchart = new BarChart({ 
@@ -73,6 +74,8 @@ d3.csv("https://suuyaaa31.github.io/InfoVis2022/Final/SSDSE-C-2022_2.csv")
                 data.sort((a, b) => a.Beverage - b.Beverage)
               }else if (num == 11){
                 data.sort((a, b) => a.Liquors - b.Liquors)
+              }else if (num == 12){
+                  data.sort((a, b) => a.sum - b.sum)
               }
               barchart.update();
         });
@@ -105,6 +108,8 @@ d3.csv("https://suuyaaa31.github.io/InfoVis2022/Final/SSDSE-C-2022_2.csv")
                 data.sort((a, b) => b.Beverage - a.Beverage)
               }else if (num == 11){
                 data.sort((a, b) => b.Liquors - a.Liquors)
+              }else if (num == 12){
+                  data.sort((a, b) => b.sum - a.sum)
               }
               barchart.update();
         });

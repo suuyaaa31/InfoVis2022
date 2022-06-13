@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Final Task</title>
+    <link rel="stylesheet" type="text/css" href="Final.css">
 	<style>
 	 body {
 	     font-family: system-ui;
@@ -30,6 +31,8 @@
     <body>
 	<h2>都道府県ごとの家計消費データ比較</h2>
 	
+    <div class="container">
+        <div class="item1">
 	<p>
 		都道府県ごとの家計消費
 	<select name="BarValue" id="BarValue">
@@ -44,16 +47,23 @@
 		<option value="調理食品類">調理食品類</option>
 		<option value="飲料">飲料</option>
 		<option value="酒類">酒類</option>
+        <option value="合計消費">合計消費</option>
 	</select>
 	<button type="button" id="Decision1">決定</button>
+    </p>
+    <p>
 		棒グラフの値： <span id="span1"></span>
 		<button type="button" id="original">Original</button>
 		<button type="button" id="ascend">Ascend</button>
         <button type="button" id="descend">Descend</button>
 	</p>
+    </div>
 
+    <div class="item2">
 	<p>
-		２つのデータの相関関係
+		２つのデータの相関関係:
+        </p>
+        <p>
 	<select name="HorizontalValue" id="HorizontalValue">
 		<option disabled selected>横軸の値</option>
 		<option value= "穀類" >穀類</option>
@@ -66,9 +76,12 @@
 		<option value="調理食品類">調理食品類</option>
 		<option value="飲料">飲料</option>
 		<option value="酒類">酒類</option>
+        <option value="合計消費">合計消費</option>
 	</select>
 	<button type="button" id="Decision2">決定</button>
 		横軸の値：<span id="span2"></span>
+    </p>
+    <p>
 	<select name="VerticalValue" id="VerticalValue">
 		<option desabled selected>縦軸の値</option>
 		<option value= "穀類" >穀類</option>
@@ -81,10 +94,18 @@
 		<option value="調理食品類">調理食品類</option>
 		<option value="飲料">飲料</option>
 		<option value="酒類">酒類</option>
+        <option value="合計消費">合計消費</option>
 	</select>
 	<button type="button" id="Decision3">決定</button>
 		縦軸の値： <span id="span3"></span></p>
-	<p>
+    </div>
+    </div>
+	<div id="tooltip"></div>
+	<div class="container">
+	    <div class="item1"><div><svg id="drawing_region_barchart" ></svg></div></div>
+		<div class="item2"><div><svg id="drawing_region_scatterplot"></svg></div></div>
+	</div>
+    <p10>
 		都道府県を選択したときの色
 		<select name="SelectColor" id="SelectColor">
 		<option value= "red"selected>赤</option>
@@ -93,14 +114,8 @@
 	</select>	
 	<button type="button" id="Decision4">都道県選択：散布図に反映</button>
 	<button type="button" id="Decision5">リセット</button>
-	<label for="radius-slider">Radius: <span id="radius-value">10</span></label>
-    <input type="range" min="1" value="10" max="30" id="radius-slider">
-	<div id="tooltip"></div>
-	<div class="container">
-	    <div><svg id="drawing_region_barchart" ></svg></div>
-		<div><svg id="drawing_region_scatterplot"></svg></div>
-	</div>
-		データの出典：独立行政法人統計センターSSDSE（教育用標準データセット）https://www.nstac.go.jp/use/literacy/ssdse/
+    </p10>
+	<p>独立行政法人　統計センター　SSDSE-C-2022 (https://www.nstac.go.jp/use/literacy/ssdse/)を加工して作成</p>
 	<script src="https://d3js.org/d3.v6.min.js"></script>
 	<script src="ScatterPlot.js"></script>
 	<script src="BarChart.js"></script>
