@@ -62,31 +62,29 @@ class BarChart{
         const str = BarData.options[num].value;
         //データの追加
         if (num == 1){
-            self.bvalue = d => d.population	;
+            self.bvalue = d => d.Cereals;
         }else if (num == 2){
-            self.bvalue = d => d.JapanesePopulation	;
+            self.bvalue = d => d.Seafood;
         }else if(num == 3){
-            self.bvalue = d => d.PopulationUnder15YearsOld	;
+            self.bvalue = d => d.Meat;
         }else if(num == 4){
-            self.bvalue = d => d.NumberOfKindergartens	;
+            self.bvalue = d => d.MilkEggs;
         }else if(num == 5){
-            self.bvalue = d => d.NumberOfElementarySchools	;
+            self.bvalue = d => d.Vegetable;
         }else if(num == 6){
-            self.bvalue = d => d.NumberOfSecondarySchools	;
+            self.bvalue = d => d.Fruits;
         }else if(num == 7){
-            self.bvalue = d => d.NumberOfHigherEducationInstitutions	;
+            self.bvalue = d => d.Oils;
         }else if(num == 8){
-            self.bvalue = d => d.NumberOfShorttermUniversities	;
+            self.bvalue = d => d.Confectionery;
         }else if(num == 9){
-            self.bvalue = d => d.UniversityNumbers	;
+            self.bvalue = d => d.Cooked;
         }else if(num == 10){
-            self.bvalue = d => d.NumberOfCommunityCenters	;
+            self.bvalue = d => d.Beverage;
         }else if(num == 11){
-            self.bvalue = d => d.NumberOfLibraries	;
-        }else if(num == 12){
-            self.bvalue = d => d.Museum	;
+            self.bvalue = d => d.Liquors;
         }else{
-            self.bvalue = d => d.population	;
+            self.bvalue = d => d.Cereals;
         }
     
     
