@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <title>Final Task</title>
+	<style>
+	 body {
+	     font-family: system-ui;
+	 }
+	 .container {
+	     display: flex;
+	 }
+	 .bar.active {
+	     stroke: #000;
+	 }
+	 #tooltip {
+	     position: absolute;
+	     opacity: 0;
+	     background: #fff;
+	     border: 1px solid #ddd;
+	     font-size: 12px;
+	     font-weight: 600;
+	     padding: 2px 8px;
+	 }
+	 .tooltip-label {
+	     font-weight: 500;
+	     font-size: 11px;
+	     color: #888;
+	 }
+	</style>
+    </head>
+    <body>
+	<h2>都道府県ごとの家計消費データ比較</h2>
+	
+	<p>
+		都道府県ごとの家計消費
+	<select name="BarValue" id="BarValue">
+		<option value= "穀類" selected>値を選択してください</option>
+		<option value= "穀類" >穀類</option>
+		<option value="魚介類">魚介類</option>
+		<option value="肉類">肉類</option>
+		<option value= "野菜・海藻類" >野菜・海藻類</option>
+		<option value="果物類">果物類</option>
+		<option value="油脂・調味料類">油脂・調味料類</option>
+		<option value= "菓子類" >菓子類</option>
+		<option value="調理食品類">調理食品類</option>
+		<option value="飲料">飲料</option>
+		<option value="酒類">酒類</option>
+	</select>
+	<button type="button" id="Decision1">決定</button>
+		棒グラフの値： <span id="span1"></span>
+		<button type="button" id="original">Original</button>
+		<button type="button" id="ascend">Ascend</button>
+        <button type="button" id="descend">Descend</button>
+	</p>
+
+	<p>
+		２つのデータの相関関係
+	<select name="HorizontalValue" id="HorizontalValue">
+		<option disabled selected>横軸の値</option>
+		<option value= "穀類" >穀類</option>
+		<option value="魚介類">魚介類</option>
+		<option value="肉類">肉類</option>
+		<option value= "野菜・海藻類" >野菜・海藻類</option>
+		<option value="果物類">果物類</option>
+		<option value="油脂・調味料類">油脂・調味料類</option>
+		<option value= "菓子類" >菓子類</option>
+		<option value="調理食品類">調理食品類</option>
+		<option value="飲料">飲料</option>
+		<option value="酒類">酒類</option>
+	</select>
+	<button type="button" id="Decision2">決定</button>
+		横軸の値：<span id="span2"></span>
+	<select name="VerticalValue" id="VerticalValue">
+		<option desabled selected>縦軸の値</option>
+		<option value= "穀類" >穀類</option>
+		<option value="魚介類">魚介類</option>
+		<option value="肉類">肉類</option>
+		<option value= "野菜・海藻類" >野菜・海藻類</option>
+		<option value="果物類">果物類</option>
+		<option value="油脂・調味料類">油脂・調味料類</option>
+		<option value= "菓子類" >菓子類</option>
+		<option value="調理食品類">調理食品類</option>
+		<option value="飲料">飲料</option>
+		<option value="酒類">酒類</option>
+	</select>
+	<button type="button" id="Decision3">決定</button>
+		縦軸の値： <span id="span3"></span></p>
+	<p>
+		都道府県を選択したときの色
+		<select name="SelectColor" id="SelectColor">
+		<option value= "red"selected>赤</option>
+		<option value="blue">青</option>
+		<option value="green">緑</option>
+	</select>	
+	<button type="button" id="Decision4">都道県選択：散布図に反映</button>
+	<button type="button" id="Decision5">リセット</button>
+	<label for="radius-slider">Radius: <span id="radius-value">10</span></label>
+    <input type="range" min="1" value="10" max="30" id="radius-slider">
+	<div id="tooltip"></div>
+	<div class="container">
+	    <div><svg id="drawing_region_barchart" ></svg></div>
+		<div><svg id="drawing_region_scatterplot"></svg></div>
+	</div>
+		データの出典：独立行政法人統計センターSSDSE（教育用標準データセット）https://www.nstac.go.jp/use/literacy/ssdse/
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+	<script src="ScatterPlot.js"></script>
+	<script src="BarChart.js"></script>
+	<script src="Final_main.js"></script>
+    </body>
+</html>
